@@ -18,7 +18,7 @@ weather_tasks = Task(
                 - Use the get_forecast tool to retrieve a 5-day weather forecast for the specified
                 - Analyze the retrieved data to provide a clear and concise summary of the current weather and the forecast, including any significant weather events or changes in conditions.
                 - If the weather conditions indicate potential risks (e.g., storms, extreme temperatures), provide advice on how to prepare and stay safe.
-                - Provide a detailed advice and recommendations for the user based on the weather conditions, such as what to wear, whether to carry an umbrella, or if any outdoor activities should be reconsidered.
+                - Provide a detailed advice and recommendations for the user that who has to travel on that location based on the weather conditions, such as what to wear, whether to carry an umbrella, or if any outdoor activities should be reconsidered.
                 """,
 
     expected_output="""
