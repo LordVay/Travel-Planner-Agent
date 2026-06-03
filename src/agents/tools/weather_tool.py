@@ -20,8 +20,9 @@ class ForecastInfo(BaseModel):
     Day4 : dict
     Day5 : dict
 
-@tool
+@tool("Current Weather Tool")
 def weather_agent(city : str) -> WeatherInfo:
+    """Get current weather information for a specified city."""
     api_key = agent.WEATHER_API
     base_url = "https://api.openweathermap.org/data/2.5/weather"
 
@@ -39,8 +40,9 @@ def weather_agent(city : str) -> WeatherInfo:
         temperature=res["main"]["temp"]
     )
 
-@tool
+@tool("5-Day Forecast Tool")
 def forecast_agent(city : str) -> WeatherInfo:
+    """Get 5-day weather forecast for a specified city."""
     api_key = agent.WEATHER_API
     base_url = "https://api.openweathermap.org/data/2.5/forecast"
 
@@ -74,7 +76,4 @@ def forecast_agent(city : str) -> WeatherInfo:
         Day4=forecast[3],
         Day5=forecast[4]
     )
-    
-
-print(forecast_agent("Manila"))
 
