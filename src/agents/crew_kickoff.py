@@ -2,7 +2,7 @@ from pprint import pprint
 from crew import weather_crew
 
 input_data = {
-    "location": "New York City"
+    "location": "Manila"
 }
 
 result = weather_crew.kickoff(input_data)
