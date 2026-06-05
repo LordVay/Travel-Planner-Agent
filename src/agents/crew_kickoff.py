@@ -1,5 +1,5 @@
 from pprint import pprint
-from crew import weather_crew
+from .crew import weather_crew
 
 input_data = {
     "location": "Manila"

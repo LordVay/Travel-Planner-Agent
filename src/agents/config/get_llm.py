@@ -1,8 +1,6 @@
 from crewai import LLM
-import os,sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from config.llm_config import LLM_CONFIG
-from config.api import AgentSettings
+from .llm_config import LLM_CONFIG
+from .api import AgentSettings
 agent = AgentSettings()
 
 

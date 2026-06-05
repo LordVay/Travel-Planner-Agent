@@ -1,7 +1,5 @@
 from crewai import Task
-import os,sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from agent.weather_agent import weather_agents
+from ..agent.weather_agent import weather_agents
 from pydantic import BaseModel
 
 class WeatherOutput(BaseModel):

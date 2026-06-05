@@ -1,8 +1,6 @@
 from crewai import Agent
-import os,sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from tools.weather_tool import weather_agent,forecast_agent
-from config.get_llm import get_llm
+from ..tools.weather_tool import weather_agent,forecast_agent
+from ..config.get_llm import get_llm
 
 
 name = "General Agent"
