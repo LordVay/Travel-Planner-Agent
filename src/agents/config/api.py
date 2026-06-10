@@ -6,6 +6,7 @@ load_dotenv()
 class AgentSettings(BaseSettings):
     WEATHER_API : str
     GEMINI_API : str
+    FLIGHT_API : str
 
     class Config:
         env_file = ".env"
