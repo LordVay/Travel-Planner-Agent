@@ -18,7 +18,7 @@ class FlightInfo(BaseModel):
     departure : str
     city: str
 
-# @tool("Flight Tool")
+@tool("Flight Tool")
 def flight_agent(date: str, code: str) -> FlightInfo:
     """Get flight information for a given city."""
     api_key = agent.FLIGHT_API
@@ -26,7 +26,7 @@ def flight_agent(date: str, code: str) -> FlightInfo:
 
     params = {
         'access_key': api_key,
-        'iataCode': code,
+        'iata_code': code,
         'date': date,
         'type': 'departure',
         'limit': 3
@@ -54,6 +54,3 @@ def flight_agent(date: str, code: str) -> FlightInfo:
         raise ValueError(f"Invalid response format from flight   API. Missing field: {str(e)}")
     except ValueError as e:
         raise e
-
-if __name__ == "__main__":
-    flight_agent("2026-06-12", "MNL")
