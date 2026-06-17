@@ -39,7 +39,7 @@ def restaurant_finder(city: str) -> list[dict]:
             raise ValueError(f"Could not find restaurants in '{city}'. API status: {res.get('status')}")
 
         restaurants = []
-        for place in res.get("results", [])[:10]:
+        for place in res.get("results", [])[:5]:
             restaurant = RestaurantInfo(
                 name=place.get("name", "Unknown"),
                 address=place.get("formatted_address", "No address available"),

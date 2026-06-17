@@ -40,7 +40,7 @@ def hotel_finder(city: str) -> list[dict]:
             raise ValueError(f"Could not find hotels in '{city}'. API status: {res.get('status')}")
 
         hotels = []
-        for place in res.get("results", [])[:10]:
+        for place in res.get("results", [])[:5]:
             hotel = HotelInfo(
                 name=place.get("name", "Unknown"),
                 address=place.get("formatted_address", "No address available"),
