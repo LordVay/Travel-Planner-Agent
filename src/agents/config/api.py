@@ -15,15 +15,15 @@ class AgentSettings(BaseSettings):
     FLIGHT_API: str    # Flight data API key
     MAPS_API: str      # Google Maps API key
 
-    @field_validator("*", mode="before")
+    """@field_validator("*", mode="before")
     @classmethod
     def reject_placeholder_keys(cls, v):
-        """Fail fast if any API key is a known placeholder value.
-        This catches misconfigured .env files before they cause cryptic runtime errors."""
+        "Fail fast if any API key is a known placeholder value.
+        This catches misconfigured .env files before they cause cryptic runtime errors."
         placeholders = {"your-api-key", "change_me", "xxx", "placeholder", ""}
         if isinstance(v, str) and v.strip().lower() in placeholders:
             raise ValueError("API key appears to be a placeholder. Set a real key in .env.")
-        return v
+        return v"""
 
     class Config:
         env_file = ".env"

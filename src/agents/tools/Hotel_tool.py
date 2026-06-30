@@ -19,7 +19,7 @@ class HotelInfo(BaseModel):
     status: str
 
 
-#@tool("Hotel Finder Tool")
+@tool("Hotel Finder Tool")
 def hotel_finder(city: str) -> list[dict]:
     """Find top-rated hotels in a specified city for vacation stays."""
     api_key = agent.MAPS_API
@@ -53,5 +53,3 @@ def hotel_finder(city: str) -> list[dict]:
         return hotels
     except requests.exceptions.RequestException as e:
         raise ValueError(f"Error connecting to Google Maps API: {str(e)}")
-
-print(hotel_finder("Vigan"))

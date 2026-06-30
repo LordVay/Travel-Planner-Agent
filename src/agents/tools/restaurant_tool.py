@@ -18,7 +18,7 @@ class RestaurantInfo(BaseModel):
     status: str
 
 
-#@tool("Restaurant Finder Tool")
+@tool("Restaurant Finder Tool")
 def restaurant_finder(city: str) -> list[dict]:
     """Find top-rated restaurants in a specified city for vacation dining."""
     api_key = agent.MAPS_API
