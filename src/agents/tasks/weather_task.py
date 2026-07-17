@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 class WeatherOutput(BaseModel):
     current_weather: dict
-    forecast: dict
+    forecast: list
     advice: str
 
 weather_tasks = Task(

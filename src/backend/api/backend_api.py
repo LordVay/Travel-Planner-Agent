@@ -12,6 +12,7 @@ from ..models.requests import (
     RestaurantRequest,
     AttractionRequest,
     ItineraryRequest,
+    BudgetRequest,
     TravelPlanRequest,
 )
 from ..middleware.rate_limit import limiter
@@ -21,6 +22,7 @@ from ..services.back_services import (
     get_itenerary,
     get_hotel_recommendation,
     get_restaurant_recommendation,
+    get_budget_analysis,
     get_travel_plan,
 )
 
@@ -101,6 +103,29 @@ def itenerary(request: Request, body: ItineraryRequest):
             body.intensity,
             body.events,
             body.schedule_style,
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@router.post("/travel/budget")
+@limiter.limit("10/minute")
+def budget_analysis(request: Request, body: BudgetRequest):
+    """Generate a budget breakdown with chart-ready data. Input is sanitized via BudgetRequest."""
+    try:
+        return get_budget_analysis(
+            body.location,
+            body.days,
+            body.group_size,
+            body.total_budget,
+            body.interests,
+            body.intensity,
+            body.events,
+            body.schedule_style,
+            body.hotel_preference,
+            body.restaurant_preference,
+            body.dietary_restrictions,
+            body.meal_budget_per_day,
         )
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))

@@ -128,6 +128,37 @@ class ItineraryRequest(BaseModel):
         return _sanitize_text_field(v)
 
 
+class BudgetRequest(BaseModel):
+    """Request body for the budget analysis endpoint."""
+
+    location: str = Field(..., min_length=2, max_length=100)
+    days: int = Field(..., ge=1, le=30)
+    group_size: int = Field(..., ge=1, le=50)
+    total_budget: str = Field(..., min_length=1, max_length=50)
+    interests: str = Field(..., min_length=1, max_length=300)
+    intensity: str = Field(..., min_length=1, max_length=50)
+    events: str = Field(..., min_length=1, max_length=300)
+    schedule_style: str = Field(..., min_length=1, max_length=50)
+    hotel_preference: str = Field(..., min_length=1, max_length=200)
+    restaurant_preference: str = Field(..., min_length=1, max_length=200)
+    dietary_restrictions: str = Field(..., min_length=1, max_length=200)
+    meal_budget_per_day: str = Field(..., min_length=1, max_length=50)
+
+    @field_validator("location")
+    @classmethod
+    def sanitize_location(cls, v: str) -> str:
+        return _sanitize_location(v)
+
+    @field_validator(
+        "total_budget", "interests", "intensity", "events", "schedule_style",
+        "hotel_preference", "restaurant_preference", "dietary_restrictions",
+        "meal_budget_per_day",
+    )
+    @classmethod
+    def sanitize_text(cls, v: str) -> str:
+        return _sanitize_text_field(v)
+
+
 class TravelPlanRequest(BaseModel):
     """Request body for the full travel planner endpoint — compiles all agents into one plan."""
 

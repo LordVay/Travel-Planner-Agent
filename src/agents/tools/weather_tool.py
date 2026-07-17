@@ -74,12 +74,18 @@ def forecast_agent(city : str) -> ForecastInfo:
 
         for i in range(0, len(res["list"]), 8):
             location = res["city"]["name"]
+            date = res["list"][i]["dt_txt"].split(" ")[0]
             description = res["list"][i]["weather"][0]["description"]
             temperature = res["list"][i]["main"]["temp"]
+            humidity = res["list"][i]["main"]["humidity"]
+            wind_speed = res["list"][i]["wind"]["speed"]
             cast = {
-                "location" : location,
+                "location": location,
+                "date": date,
                 "description": description,
-                "temperature": temperature
+                "temperature": temperature,
+                "humidity": f"{humidity}%",
+                "wind_speed": f"{wind_speed} m/s"
             }
             forecast.append(cast)
 

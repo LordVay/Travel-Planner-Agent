@@ -10,13 +10,14 @@ budget_agents = Agent(
     role="Budget Agent",
     llm=llm,
     tools=[],
-    goal="Provide a organize diagram of budget plan that depends on how many people are traveling, the days of the trip, and the user's preferences."
-         " The agent prioritizes clarity, factual accuracy, and relevance, presenting outputs in a user-friendly"
-         " format with supporting references when possible."
-         " The agent is designed to assist users on their updated budget form start to finish of the trip",
-    backstory="You are a budget expert who has spent years analyzing travel expenses and studying customer preferences."
-              "You specialize in providing accurate and timely budget plans, ensuring that your suggestions are reliable and based on the latest information."
-              "You value precision and transparency, always grounding responses in data so users can trust the insights you provide."
-              "You have a deep understanding of what makes a budget plan valuable to users, and you provide advice to users on how to manage their travel expenses based on their preferences and the available options, giving also insights on the cost-effectiveness and value of different choices.",
+    goal="Analyze a travel budget and produce a structured breakdown with numerical data suitable for generating "
+         "pie charts, bar graphs, and daily spending line charts. Allocate the budget across categories "
+         "(accommodation, meals, transportation, activities, miscellaneous) and provide per-day cost estimates "
+         "so the data can be visualized as graphs. Always output precise numerical values that sum correctly.",
+    backstory="You are a budget analyst specializing in travel finance. You break down total budgets into category "
+              "allocations and daily spending plans with precise numerical values. Your outputs are always structured "
+              "as clean numerical data ready for chart visualization — percentages for pie charts, category amounts "
+              "for bar charts, and daily cumulative spending for line graphs. You ensure the numbers always sum to "
+              "the total budget and account for the group size and trip duration.",
     verbose=True,
 )

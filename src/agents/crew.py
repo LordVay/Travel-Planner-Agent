@@ -9,6 +9,8 @@ from .tasks.hotel_task import hotel_tasks
 from .agent.hotel_agent import hotel_agents
 from .tasks.restaurant_task import restaurant_tasks
 from .agent.restaurant_agent import restaurant_agents
+from .tasks.budget_task import budget_tasks
+from .agent.budget_agent import budget_agents
 from .tasks.travel_planner_task import travel_planner_tasks
 from .agent.travel_planner_agent import travel_planner_agents
 
@@ -41,6 +43,24 @@ hotel_crew = Crew(
 restaurant_crew = Crew(
     agents=[restaurant_agents],
     tasks=[restaurant_tasks],
+    verbose=True,
+)
+
+budget_crew = Crew(
+    agents=[
+        atrraction_guide_agents,
+        itenerary_agents,
+        hotel_agents,
+        restaurant_agents,
+        budget_agents,
+    ],
+    tasks=[
+        attraction_tasks,
+        itenerary_tasks,
+        hotel_tasks,
+        restaurant_tasks,
+        budget_tasks,
+    ],
     verbose=True,
 )
 
